@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="Process_1" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_0m4f021</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_1ugeox8" name="go to financial supervisory authority&#39;s website">
+      <bpmn:incoming>SequenceFlow_0m4f021</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1qtlckx</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_0m4f021" sourceRef="StartEvent_1" targetRef="Task_1ugeox8" />
+    <bpmn:task id="Task_1e24gv1" name="find search tool for supervised entities">
+      <bpmn:incoming>SequenceFlow_1qtlckx</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0j7vc9l</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_1qtlckx" sourceRef="Task_1ugeox8" targetRef="Task_1e24gv1" />
+    <bpmn:task id="Task_0srzqnl" name="input entity&#39;s name in search bar">
+      <bpmn:incoming>SequenceFlow_0j7vc9l</bpmn:incoming>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_1iy6l2u">
+        <bpmn:targetRef>DataObjectReference_0pkji6b</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_0j7vc9l" sourceRef="Task_1e24gv1" targetRef="Task_0srzqnl" />
+    <bpmn:dataObjectReference id="DataObjectReference_0pkji6b" name="webpage displays proof of supervision" dataObjectRef="DataObject_0qo5soc" />
+    <bpmn:dataObject id="DataObject_0qo5soc" />
+    <bpmn:task id="Task_1nhvxpm" name="take screenshot of webpage">
+      <bpmn:outgoing>SequenceFlow_0msdrfb</bpmn:outgoing>
+      <bpmn:property id="Property_0mx9rg3" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_1iy4y2f">
+        <bpmn:sourceRef>DataObjectReference_0pkji6b</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0mx9rg3</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:task>
+    <bpmn:task id="Task_0xqfhwr" name="save screenshot of webpage">
+      <bpmn:incoming>SequenceFlow_0msdrfb</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0fr4kkf</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_109fdr5" name="rename screenshot">
+      <bpmn:incoming>SequenceFlow_0fr4kkf</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0l03mrl</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_0msdrfb" sourceRef="Task_1nhvxpm" targetRef="Task_0xqfhwr" />
+    <bpmn:sequenceFlow id="SequenceFlow_0fr4kkf" sourceRef="Task_0xqfhwr" targetRef="Task_109fdr5" />
+    <bpmn:endEvent id="EndEvent_1amqp6z">
+      <bpmn:incoming>SequenceFlow_0l03mrl</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0l03mrl" sourceRef="Task_109fdr5" targetRef="EndEvent_1amqp6z" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="167" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1ugeox8_di" bpmnElement="Task_1ugeox8">
+        <dc:Bounds x="230" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0m4f021_di" bpmnElement="SequenceFlow_0m4f021">
+        <di:waypoint x="203" y="120" />
+        <di:waypoint x="230" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_1e24gv1_di" bpmnElement="Task_1e24gv1">
+        <dc:Bounds x="392" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1qtlckx_di" bpmnElement="SequenceFlow_1qtlckx">
+        <di:waypoint x="330" y="120" />
+        <di:waypoint x="392" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_0srzqnl_di" bpmnElement="Task_0srzqnl">
+        <dc:Bounds x="550" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0j7vc9l_di" bpmnElement="SequenceFlow_0j7vc9l">
+        <di:waypoint x="492" y="120" />
+        <di:waypoint x="550" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="DataObjectReference_0pkji6b_di" bpmnElement="DataObjectReference_0pkji6b">
+        <dc:Bounds x="712" y="95" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="686" y="152" width="88" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1iy6l2u_di" bpmnElement="DataOutputAssociation_1iy6l2u">
+        <di:waypoint x="650" y="120" />
+        <di:waypoint x="712" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_1nhvxpm_di" bpmnElement="Task_1nhvxpm">
+        <dc:Bounds x="169" y="276" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1iy4y2f_di" bpmnElement="DataInputAssociation_1iy4y2f">
+        <di:waypoint x="748" y="120" />
+        <di:waypoint x="815" y="120" />
+        <di:waypoint x="815" y="223" />
+        <di:waypoint x="219" y="223" />
+        <di:waypoint x="219" y="276" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_0xqfhwr_di" bpmnElement="Task_0xqfhwr">
+        <dc:Bounds x="392" y="276" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_109fdr5_di" bpmnElement="Task_109fdr5">
+        <dc:Bounds x="587" y="276" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0msdrfb_di" bpmnElement="SequenceFlow_0msdrfb">
+        <di:waypoint x="269" y="316" />
+        <di:waypoint x="392" y="316" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0fr4kkf_di" bpmnElement="SequenceFlow_0fr4kkf">
+        <di:waypoint x="492" y="316" />
+        <di:waypoint x="587" y="316" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1amqp6z_di" bpmnElement="EndEvent_1amqp6z">
+        <dc:Bounds x="776" y="298" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0l03mrl_di" bpmnElement="SequenceFlow_0l03mrl">
+        <di:waypoint x="687" y="316" />
+        <di:waypoint x="776" y="316" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
